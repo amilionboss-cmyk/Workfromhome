@@ -2,8 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Redirecting...</title>
+  <title>Ozii's Hustle Hub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      color: #333;
+    }
+    p {
+      font-size: 18px;
+      color: #555;
+    }
+  </style>
   <script>
     const links = [
       "https://singingfiles.com/show.php?l=0&u=2467240&id=72940",
@@ -18,10 +33,23 @@
 
     const randomLink = availableLinks[Math.floor(Math.random() * availableLinks.length)];
     localStorage.setItem("lastRedirect", randomLink);
-    window.location.href = randomLink;
+
+    let countdown = 5;
+    function updateCountdown() {
+      document.getElementById("countdown").textContent = countdown;
+      if (countdown === 0) {
+        window.location.href = randomLink;
+      } else {
+        countdown--;
+        setTimeout(updateCountdown, 1000);
+      }
+    }
+
+    window.onload = updateCountdown;
   </script>
 </head>
 <body>
-  <p>Redirecting you to the best available offer…</p>
+  <h1>Welcome to Ozii’s Hustle Hub</h1>
+  <p>Redirecting you to the best online job in <span id="countdown">5</span> seconds…</p>
 </body>
 </html>
