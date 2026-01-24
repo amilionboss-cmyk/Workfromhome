@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Ozii's Hustle Hub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="https://i.postimg.cc/dQbf3Vr0/copilot-image-1769289925079.png" type="image/png">
+  <link rel="icon" href="https://www.google.com/s2/favicons?domain=amilionboss-cmyk.github.io" type="image/x-icon">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -67,6 +67,16 @@
       margin-top: 20px;
     }
 
+    .fallback {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .fallback a {
+      color: #00ffcc;
+      text-decoration: underline;
+    }
+
     .cta-button {
       display: inline-block;
       margin-top: 25px;
@@ -84,7 +94,7 @@
 
     @media (max-width: 600px) {
       h1 { font-size: 24px; }
-      p, .proof, .warning { font-size: 16px; }
+      p, .proof, .warning, .fallback { font-size: 16px; }
       .cta-button { font-size: 16px; padding: 10px 20px; }
     }
   </style>
@@ -127,6 +137,7 @@
   <p>Redirecting you to the best online job in <span id="countdown">5</span> seconds…</p>
   <p class="proof">🔥 1,247 people claimed this offer today!</p>
   <p class="warning">Note: Offers are only available to visitors in the United States.</p>
+  <p class="fallback">🌍 Not in the U.S.? <a href="https://www.freelancer.com/">Click here for global offers</a></p>
   <button class="cta-button" onclick="manualRedirect()">Click here if not redirected</button>
 </body>
 </html>
