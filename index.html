@@ -4,19 +4,88 @@
   <meta charset="UTF-8">
   <title>Ozii's Hustle Hub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://i.postimg.cc/dQbf3Vr0/copilot-image-1769289925079.png" type="image/png">
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      padding-top: 100px;
-      background-color: #f4f4f4;
+      padding-top: 60px;
+      background-image: url('https://copilot.microsoft.com/th/id/BCO.ef4a0db5-a756-44a5-8ecc-2ef80bb4666a.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      color: white;
+      margin: 0;
     }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    body * {
+      position: relative;
+      z-index: 1;
+      text-shadow: 2px 2px 4px #000;
+    }
+
+    img.logo {
+      width: 120px;
+      margin-bottom: 10px;
+    }
+
     h1 {
-      color: #333;
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 10px;
     }
+
     p {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    #countdown {
+      font-weight: bold;
+      font-size: 24px;
+      color: #00ffcc;
+    }
+
+    .proof {
+      color: #00ff99;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .warning {
+      color: #ff4d4d;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 24px;
       font-size: 18px;
-      color: #555;
+      font-weight: bold;
+      background-color: #00cc99;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 24px; }
+      p, .proof, .warning { font-size: 16px; }
+      .cta-button { font-size: 16px; padding: 10px 20px; }
     }
   </style>
   <script>
@@ -45,11 +114,19 @@
       }
     }
 
+    function manualRedirect() {
+      window.location.href = randomLink;
+    }
+
     window.onload = updateCountdown;
   </script>
 </head>
 <body>
-  <h1>Welcome to Ozii’s Hustle Hub</h1>
+  <img src="https://i.postimg.cc/dQbf3Vr0/copilot-image-1769289925079.png" alt="Ozii Logo" class="logo">
+  <h1>Welcome to the easiest way to earn online</h1>
   <p>Redirecting you to the best online job in <span id="countdown">5</span> seconds…</p>
+  <p class="proof">🔥 1,247 people claimed this offer today!</p>
+  <p class="warning">Note: Offers are only available to visitors in the United States.</p>
+  <button class="cta-button" onclick="manualRedirect()">Click here if not redirected</button>
 </body>
 </html>
