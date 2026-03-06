@@ -1,144 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Ozii's Hustle Hub</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="favicon.ico" type="image/x-icon" media="(prefers-color-scheme: light)">
-  <link rel="icon" href="favicon-dark.ico" type="image/x-icon" media="(prefers-color-scheme: dark)">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>My Redirect Page</title>
+
+  <!-- Open Graph tags -->
+  <meta property="og:title" content="My Special Link">
+  <meta property="og:description" content="Click the image or link to view the content.">
+  <meta property="og:image" content="https://i.postimg.cc/8cTbzMBJ/Screenshot-20260130-125617-1.jpg">
+  <meta property="og:image:alt" content="Screenshot preview">
+  <meta property="og:url" content="https://shorturl.at/DOJrI">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="My Special Link">
+  <meta name="twitter:description" content="Click the image or link to view the content.">
+  <meta name="twitter:image" content="https://i.postimg.cc/8cTbzMBJ/Screenshot-20260130-125617-1.jpg">
+
+  <link rel="canonical" href="https://shorturl.at/DOJrI">
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding-top: 60px;
-      background-image: url('https://copilot.microsoft.com/th/id/BCO.ef4a0db5-a756-44a5-8ecc-2ef80bb4666a.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      position: relative;
-      color: white;
-      margin: 0;
-    }
-
-    body::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0, 0, 0, 0.6);
-      z-index: 0;
-    }
-
-    body * {
-      position: relative;
-      z-index: 1;
-      text-shadow: 2px 2px 4px #000;
-    }
-
-    img.logo {
-      width: 120px;
-      margin-bottom: 10px;
-    }
-
-    h1 {
-      font-size: 32px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 20px;
-      font-weight: 500;
-    }
-
-    #countdown {
-      font-weight: bold;
-      font-size: 24px;
-      color: #00ffcc;
-    }
-
-    .proof {
-      color: #00ff99;
-      font-weight: bold;
-      margin-top: 15px;
-    }
-
-    .warning {
-      color: #ff4d4d;
-      font-weight: bold;
-      margin-top: 20px;
-    }
-
-    .fallback {
-      margin-top: 20px;
-      font-weight: bold;
-    }
-
-    .fallback a {
-      color: #00ffcc;
-      text-decoration: underline;
-    }
-
-    .cta-button {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 12px 24px;
-      font-size: 18px;
-      font-weight: bold;
-      background-color: #00cc99;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      text-decoration: none;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      cursor: pointer;
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 24px; }
-      p, .proof, .warning, .fallback { font-size: 16px; }
-      .cta-button { font-size: 16px; padding: 10px 20px; }
-    }
+    :root { --max-width: 720px; --gap: 18px; }
+    html,body { height:100%; margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; background:#f7f7f8; color:#111; }
+    .wrap { min-height:100%; display:flex; align-items:center; justify-content:center; padding:32px; box-sizing:border-box; }
+    .card { max-width:var(--max-width); width:100%; text-align:center; background:#fff; border-radius:12px; box-shadow:0 6px 24px rgba(16,24,40,0.08); padding:24px; }
+    .preview { display:block; margin:0 auto var(--gap); max-width:100%; height:auto; border-radius:8px; border:1px solid #e6e6e9; cursor:pointer; }
+    .btn { display:inline-block; padding:10px 18px; background:#1da1f2; color:#fff; text-decoration:none; border-radius:8px; font-weight:600; }
+    .note { margin-top:12px; color:#555; font-size:0.95rem; }
   </style>
-  <script>
-    const links = [
-      "https://singingfiles.com/show.php?l=0&u=2467240&id=72940",
-      "https://doctoredits.com/show.php?l=0&u=2467240&id=74033",
-      "https://ridefiles.net/show.php?l=0&u=2467240&id=73794",
-      "https://singingfiles.com/show.php?l=0&u=2467240&id=72846"
-    ];
-
-    const lastLink = localStorage.getItem("lastRedirect");
-    let availableLinks = links.filter(link => link !== lastLink);
-    if (availableLinks.length === 0) availableLinks = [...links];
-
-    const randomLink = availableLinks[Math.floor(Math.random() * availableLinks.length)];
-    localStorage.setItem("lastRedirect", randomLink);
-
-    let countdown = 5;
-    function updateCountdown() {
-      document.getElementById("countdown").textContent = countdown;
-      if (countdown === 0) {
-        window.location.href = randomLink;
-      } else {
-        countdown--;
-        setTimeout(updateCountdown, 1000);
-      }
-    }
-
-    function manualRedirect() {
-      window.location.href = randomLink;
-    }
-
-    window.onload = updateCountdown;
-  </script>
 </head>
 <body>
-  <img src="https://i.postimg.cc/dQbf3Vr0/copilot-image-1769289925079.png" alt="Ozii Logo" class="logo">
-  <h1>Welcome to the easiest way to earn online</h1>
-  <p>Redirecting you to the best online job in <span id="countdown">5</span> seconds…</p>
-  <p class="proof">🔥 1,247 people claimed this offer today!</p>
-  <p class="warning">Note: Offers are only available to visitors in the United States.</p>
-  <p class="fallback">🌍 Not in the U.S.? <a href="https://www.freelancer.com/">Click here for global offers</a></p>
-  <button class="cta-button" onclick="manualRedirect()">Click here if not redirected</button>
+  <div class="wrap">
+    <div class="card" role="main">
+      <h1>Open content</h1>
+
+      <!-- Clickable preview image (immediate navigation) -->
+      <a href="https://shorturl.at/DOJrI" rel="noopener noreferrer">
+        <img class="preview" src="https://i.postimg.cc/8cTbzMBJ/Screenshot-20260130-125617-1.jpg" alt="Screenshot preview">
+      </a>
+
+      <p>
+        <a class="btn" href="https://shorturl.at/DOJrI" rel="noopener noreferrer">Open content</a>
+      </p>
+
+      <p class="note">Click the image or the button to go to the content immediately.</p>
+    </div>
+  </div>
+
+  <noscript>
+    <p style="text-align:center; padding:20px;">
+      JavaScript is disabled. <a href="https://shorturl.at/DOJrI">Click here to continue</a>.
+    </p>
+  </noscript>
 </body>
 </html>
